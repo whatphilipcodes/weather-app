@@ -17,10 +17,10 @@
                 }}
             </p>
             <p class="text-8xl mb-8">
-                {{ Math.round(CurrentWeatherData.main.temp )}} &deg;
+                {{ Math.round(CurrentWeatherData.main.temp )}}&deg;
             </p>
             <p>Feels like
-                {{ Math.round(CurrentWeatherData.main.feels_like) }} &deg;
+                {{ Math.round(CurrentWeatherData.main.feels_like) }}&deg;
             </p>
             <p class="capitalize">
                 {{ CurrentWeatherData.weather[0].description }}
@@ -46,21 +46,25 @@
                         <img class="w-auto h-[50px] object-cover"
                             :src="`http://openweathermap.org/img/wn/${dayData.weather[0].icon}@2x.png`" alt="" />
                         <p class="text-xl">
-                            {{ Math.round(dayData.main.temp) }} &deg;
+                            {{ Math.round(dayData.main.temp) }}&deg;
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <hr class="border-white border-opacity-10 border w-full" />
+        <div class="flex items-center gap-2 py-12 text-white cursor-pointer duration-150 hover:text-red-500"
+            @click="removeCity">
+            <i class="fa-solid fa-trash"></i>
+            <p>Remove City</p>
+        </div>
 
     </div>
 </template>
 
 <script setup>
 import axios from 'axios';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 import env from '@/env.js';
 import { list } from 'postcss';
 
@@ -87,6 +91,8 @@ const getCurrentWeatherData = async () => {
         //     const utc = hour.dt * 1000 + localOffset;
         //     hour.currentTime = utc + 1000 * weatherData_current.data.timezone_offset;
         // });
+
+        await new Promise((res) => setTimeout(res, 1000));
 
         return weatherData_current.data;
     } catch (err) {
@@ -125,4 +131,14 @@ const getForecastData = async () => {
 };
 const CurrentWeatherData = await getCurrentWeatherData();
 const ForecastData = await getForecastData();
+
+const router = useRouter();
+const removeCity = () => {
+    const cities = JSON.parse(localStorage.getItem("savedCities"));
+    const updatedCities = cities.filter((city) => city.id !== route.query.id);
+    localStorage.setItem('savedCities', JSON.stringify(updatedCities));
+    router.push({
+        name: "home",
+    })
+}
 </script>
