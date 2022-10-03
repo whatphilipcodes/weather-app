@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 10.6159,
+        "lat": 54.1365
+    },
+    "weather": [
+        {
+            "id": 801,
+            "main": "Clouds",
+            "description": "few clouds",
+            "icon": "02n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 11.01,
+        "feels_like": 10.54,
+        "temp_min": 10.51,
+        "temp_max": 11.1,
+        "pressure": 1019,
+        "humidity": 91,
+        "sea_level": 1019,
+        "grnd_level": 1015
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 6.63,
+        "deg": 293,
+        "gust": 13.7
+    },
+    "clouds": {
+        "all": 11
+    },
+    "dt": 1664754630,
+    "sys": {
+        "type": 2,
+        "id": 2033800,
+        "country": "DE",
+        "sunrise": 1664774557,
+        "sunset": 1664815826
+    },
+    "timezone": 7200,
+    "id": 2928381,
+    "name": "Eutin",
+    "cod": 200
+}
