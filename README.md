@@ -1,9 +1,14 @@
 # Tutorial by John Komarnicki
+<p>
 Following these videos:<br>
 https://www.youtube.com/playlist?list=PL4cUxeGkcC9hfoy8vFQ5tbXO3vY0xhhUaZ<br>
 GitHub Links:<br>
 https://github.com/johnkomarnicki<br>
 https://github.com/johnkomarnicki/net_ninja_vue_3_weather_app
+</p>
+<p>
+Note: The API Keys are not included in this repo!
+</p>
 
 # Vue Commands
 ## Recommended IDE Setup
